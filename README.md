@@ -1,6 +1,6 @@
 <div id="header" align="center">
 <!-- PROJECT LOGO -->
-   <img src="./assets/logo.png" alt="Logo" width="200" height="200">
+   <img src="./logo.png" alt="Logo" width="200" height="200">
 </div>
 </br>
 
@@ -74,7 +74,7 @@ We are working with this game as our project lab of Algorithms & Data Structures
   - các tính năng của ghost....
 - Design
   
-![My Image](assets/Design1.png)
+![My Image](Design1.png)
 
 - UML
 ???
