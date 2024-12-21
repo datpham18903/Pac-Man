@@ -75,6 +75,7 @@ We are working with this game as our project lab of Algorithms & Data Structures
 - Design
   
 ![My Image](Design1.png)
+![My Image](Design2.png)
 
 - UML
 ???
