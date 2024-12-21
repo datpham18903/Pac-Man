@@ -1,7 +1,7 @@
 # Pacman Game 
 <div id="header" align="center">
 <!-- PROJECT LOGO -->
-   <img src="./logo.png" alt="Logo" width="200" height="200">
+   <img src="./logo.png" alt="Logo" width="400" height="180">
 </div>
 </br>
 
