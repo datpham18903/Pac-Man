@@ -1,15 +1,9 @@
+# Pacman Game 
 <div id="header" align="center">
 <!-- PROJECT LOGO -->
    <img src="./logo.png" alt="Logo" width="200" height="200">
 </div>
 </br>
-
-
-
-<!-- Welcome line -->
-<p align="center">
-  Welcome to our repository  
-</p>
 
 <!-- TABLE OF CONTENTS -->
 # Table of Contents
