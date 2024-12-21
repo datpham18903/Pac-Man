@@ -65,11 +65,12 @@ We are working with this game as our project lab of Algorithms & Data Structures
 # Features 
 - About the rules to play
   - Pac-Man is an action maze chase video game; the player controls the eponymous character through an enclosed maze. The objective of the game is to eat all of the dots placed in the maze while avoiding four colored ghosts—Blinky (red), Pinky (pink), Inky (cyan), and Clyde (orange)—who pursue Pac-Man.
-  - Each ghost will have a circle to determine if pacman is in that circle or not. If not, ghosts will move randomly. If yes, ghosts will chase pacman using different search algorithms
-    + The Blinky - Uniform Cost Search ( UCS ).<img src="./src/resource/ghosts/blinky.png" alt="Blinky" width="25" height="25">
-    + The Pinky - Depth First Search ( DFS ).<img src="./src/resource/ghosts/pinky.png" alt="Pinky" width="25" height="25">
-    + Inky - A* Search.<img src="./src/resource/ghosts/inky.png" alt="Inky" width="25" height="25">
-    + Clyde - Breadth First Search (BDFS).<img src="./src/resource/ghosts/clyde.png" alt="Clyde" width="25" height="25">
+  - Each ghost will have a circle to determine if pacman is in that circle or not.
+  - If pacman is NOT inside the circle, ghosts will move randomly. If yes, ghosts will chase pacman using different search algorithms
+    + The Blinky<img src="./src/resource/ghosts/blinky.png" alt="Blinky" width="25" height="25"> - Uniform Cost Search ( UCS ).
+    + The Pinky<img src="./src/resource/ghosts/pinky.png" alt="Pinky" width="25" height="25"> - Depth First Search ( DFS ).
+    + Inky<img src="./src/resource/ghosts/inky.png" alt="Inky" width="25" height="25"> - A* Search.
+    + Clyde<img src="./src/resource/ghosts/clyde.png" alt="Clyde" width="25" height="25"> - Breadth First Search (BDFS).
 
 - Design
   
