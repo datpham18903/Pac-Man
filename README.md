@@ -65,7 +65,11 @@ We are working with this game as our project lab of Algorithms & Data Structures
 # Features 
 - About the rules to play
   - Pac-Man is an action maze chase video game; the player controls the eponymous character through an enclosed maze. The objective of the game is to eat all of the dots placed in the maze while avoiding four colored ghosts—Blinky (red), Pinky (pink), Inky (cyan), and Clyde (orange)—who pursue Pac-Man.
-  - các tính năng của ghost....
+  - Each ghost will have a circle to determine if pacman is in that circle or not. If not, ghosts will move randomly. If yes, ghosts will chase pacman using different search algorithms:
+    + The Blinky - Uniform Cost Search ( UCS ).
+    + The Pinky - Depth First Search ( DFS ).
+    + Inky - A* Search.
+    + Clyde - Breadth First Search (BDFS).
 - Design
   
 ![My Image](Design1.png)
