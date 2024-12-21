@@ -1,8 +1,7 @@
 import javax.swing.*;
-import java.awt.*;
-import java.awt.event.*;
+// import java.awt.*;
+// import java.awt.event.*;
 
-@SuppressWarnings("unused")
 public class MazeSelector extends JFrame {
     private int selectedMaze = 1;
     
@@ -10,7 +9,7 @@ public class MazeSelector extends JFrame {
     public MazeSelector() {
         setTitle("Pacman Maze Selector");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(300, 150);
+        setSize(350, 200);
         setLocationRelativeTo(null);
         
         JPanel panel = new JPanel();
