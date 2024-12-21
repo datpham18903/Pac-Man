@@ -37,36 +37,7 @@
 | :---: | :-------------------: | :---------: |:---------------------------------------:| :---------------------------------------------------------: | :----------------------------------------------------------------: |
 
 
-<!-- INSTALLATION -->
-## Installation 
-*Prerequisites*: Make sure that the following dependencies are installed on your machine:
--  ???
-
-
-<!-- MOTIVATION -->
-## Motivation 
-We are working with this game as our project lab of Algorithms & Data Structures is a 4-credit course. During our investigation into how to create 2D games with Java, we made the decision to enhance the Pacman game, which was formerly quite well-known and familiar to many people.
-
-
-</p>
-
-<!-- TASK ALLOCATION -->
-## Task Allocation 
-| Order | Task                                  |  Person   | Contribution (%) |
-| :---- |:--------------------------------------| :-------: | :----------: |
--đợi reporreport
-
-<!-- TOOL USED -->
-# Tool Used 
-- ???
-
-
-<!-- FEATURES -->
-# Features 
-- About the rules to play
-  - Pac-Man is an action maze chase video game; the player controls the eponymous character through an enclosed maze. The objective of the game is to eat all of the dots placed in the maze while avoiding four colored ghosts—Blinky (red), Pinky (pink), Inky (cyan), and Clyde (orange)—who pursue Pac-Man.
-  - Each ghost will have a circle to determine if pacman is in that circle or not. If not, ghosts will move randomly. If yes, ghosts will chase pacman using different search algorithms:
-    + The Blinky - Uniform Cost Search ( UCS ). <img src=".src/ghosts/blinky.png" alt="Blinky" width="100%" height="auto">
+<!-- INSTresource/ghosts/blinky.png" alt="Blinky" width="100%" height="auto">
     + The Pinky - Depth First Search ( DFS ).
     + Inky - A* Search.
     + Clyde - Breadth First Search (BDFS).
