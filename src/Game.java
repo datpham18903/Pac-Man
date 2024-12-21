@@ -1,6 +1,8 @@
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.geom.Rectangle2D;
+import java.io.File;
+import java.io.IOException;
 import java.util.HashSet;
 import java.util.TimerTask;
 import java.util.Timer;
@@ -31,6 +33,7 @@ public class Game extends JPanel implements KeyListener {
     public Image inky;
     public Image clyde;
     public Image pacmanRightImage;
+    private Font Emulogic;
 
     // Game objects
     private HashSet<Ghost> ghosts;
@@ -79,6 +82,7 @@ public class Game extends JPanel implements KeyListener {
         addKeyListener(this);
 
         loadImages();
+        loadCustomFont();
         restartPacmanandGhosts();
         gameLoop();
     }
@@ -92,6 +96,20 @@ public class Game extends JPanel implements KeyListener {
             pacmanRightImage = new ImageIcon(getClass().getResource("./resource/pacman/pacmanRight.png")).getImage();
         } catch (Exception e) {
             System.err.println("Error loading images: " + e.getMessage());
+        }
+    }
+
+    private void loadCustomFont() {
+        try {
+            Emulogic = Font.createFont(Font.TRUETYPE_FONT, 
+            getClass().getResourceAsStream("/resource/font/Emulogic-zrEw.ttf"))
+            .deriveFont(12f);
+            GraphicsEnvironment ge = 
+                GraphicsEnvironment.getLocalGraphicsEnvironment();
+            ge.registerFont(Emulogic);
+        } catch (IOException | FontFormatException e) {
+            System.err.println("Error loading custom font: " + e.getMessage());
+            Emulogic = new Font("Arial", Font.PLAIN, 16);
         }
     }
 
@@ -263,7 +281,7 @@ public class Game extends JPanel implements KeyListener {
 
     private void drawIntro(Graphics2D g2d) {
         g2d.setColor(Color.yellow);
-        g2d.setFont(new Font("Emulogic", Font.PLAIN, 10));
+        g2d.setFont(Emulogic);
         g2d.drawString(
             "Ready!", 
             (oneBlockSize * map[0].length) / 2 - 30, 
@@ -356,7 +374,7 @@ public class Game extends JPanel implements KeyListener {
 
     private void drawScore(Graphics2D g2d) {
         g2d.setColor(Color.WHITE);
-        g2d.setFont(new Font("Emulogic", Font.PLAIN, 12));
+        g2d.setFont(Emulogic);
         g2d.drawString(
             "Score:" + score, 
             300, 
