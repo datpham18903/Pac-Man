@@ -38,8 +38,6 @@
 
 
 <!-- INSTALLATION -->
-Based on the information provided and standard practices for Java-based game installations, here's an updated installation guide for your Pac-Man Java game:
-
 ## Installation Guide for Pac-Man Java Game
 
 ### Prerequisites
