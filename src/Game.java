@@ -19,6 +19,7 @@ public class Game extends JPanel implements KeyListener {
     private int lives = 3;
     public int fps = 30;
     private Timer timer;
+    private int mazeType;
 
     // Size constants
     public int oneBlockSize = 20;
@@ -65,6 +66,32 @@ public class Game extends JPanel implements KeyListener {
         {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}
     };
 
+    public int[][] map2 = {
+        {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+        {1, 4, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 5, 1},
+        {1, 2, 1, 1, 2, 1, 1, 1, 1, 2, 1, 2, 1, 1, 1, 1, 2, 1, 1, 2, 1},
+        {1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1},
+        {1, 2, 1, 1, 2, 1, 2, 1, 1, 1, 1, 1, 1, 1, 2, 1, 2, 1, 1, 2, 1},
+        {1, 2, 2, 2, 2, 1, 2, 2, 2, 2, 1, 2, 2, 2, 2, 1, 2, 2, 2, 2, 1},
+        {1, 1, 1, 1, 2, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 2, 1, 1, 1, 1},
+        {0, 0, 0, 1, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 1, 0, 0, 0},
+        {1, 1, 1, 1, 2, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 2, 1, 1, 1, 1},
+        {0, 0, 0, 0, 2, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 2, 0, 0, 0, 0},
+        {1, 1, 1, 1, 2, 1, 0, 1, 0, 0, 3, 0, 0, 1, 0, 1, 2, 1, 1, 1, 1},
+        {0, 0, 0, 0, 2, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 2, 0, 0, 0, 0},
+        {1, 1, 1, 1, 2, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 2, 1, 1, 1, 1},
+        {0, 0, 0, 1, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 1, 0, 0, 0},
+        {1, 1, 1, 1, 2, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 2, 1, 1, 1, 1},
+        {1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1},
+        {1, 2, 1, 1, 2, 1, 1, 1, 1, 2, 1, 2, 1, 1, 1, 1, 2, 1, 1, 2, 1},
+        {1, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 1},
+        {1, 1, 2, 1, 2, 1, 2, 1, 1, 1, 1, 1, 1, 1, 2, 1, 2, 1, 2, 1, 1},
+        {1, 2, 2, 2, 2, 1, 2, 2, 2, 2, 1, 2, 2, 2, 2, 1, 2, 2, 2, 2, 1},
+        {1, 2, 1, 1, 1, 1, 1, 1, 1, 2, 1, 2, 1, 1, 1, 1, 1, 1, 1, 2, 1},
+        {1, 6, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 7, 1},
+        {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}
+    };
+
     public Point[] randomTargetsForGhosts = {
         new Point(oneBlockSize, oneBlockSize),
         new Point(oneBlockSize, (map.length - 2) * oneBlockSize),
@@ -72,7 +99,12 @@ public class Game extends JPanel implements KeyListener {
         new Point((map[0].length - 2) * oneBlockSize, (map.length - 2) * oneBlockSize)
     };
 
-    public Game() {
+    public Game(int mazeType) {
+        if (mazeType == 2) {
+            map = map2;
+        }
+        this.mazeType = mazeType;
+
         setPreferredSize(new Dimension(420, 500));
         setBackground(Color.BLACK);
         setFocusable(true);
@@ -174,7 +206,8 @@ public class Game extends JPanel implements KeyListener {
                         r * oneBlockSize,
                         oneBlockSize,
                         oneBlockSize,
-                        oneBlockSize / 5
+                        oneBlockSize / 5,
+                        mazeType 
                     );
                 }
             }
@@ -195,7 +228,8 @@ public class Game extends JPanel implements KeyListener {
                         oneBlockSize, 
                         oneBlockSize,
                         pacman.speed / 2,
-                        6
+                        6,
+                        mazeType 
                     );
                     ghosts.add(ghost);
                 }
@@ -209,7 +243,8 @@ public class Game extends JPanel implements KeyListener {
                         oneBlockSize, 
                         oneBlockSize,
                         pacman.speed / 2,
-                        6
+                        6,
+                        mazeType 
                     );
                     ghosts.add(ghost);
                 }
@@ -223,7 +258,8 @@ public class Game extends JPanel implements KeyListener {
                         oneBlockSize, 
                         oneBlockSize,
                         pacman.speed / 2,
-                        6
+                        6,
+                        mazeType 
                     );
                     ghosts.add(ghost);
                 }
@@ -237,7 +273,8 @@ public class Game extends JPanel implements KeyListener {
                         oneBlockSize, 
                         oneBlockSize,
                         pacman.speed /2,
-                        6
+                        6,
+                        mazeType 
                     );
                     ghosts.add(ghost);
                 }

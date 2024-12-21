@@ -22,14 +22,18 @@ public class Pacman {
     private BufferedImage[] pacmanFrames;
     private Timer timer;
     private int[][] map;
+    @SuppressWarnings("unused")
+    private int mazeType;
 
+    @SuppressWarnings("unused")
     public Pacman(
         Game game,
         int x,
         int y,
         int width,
         int height,
-        int speed
+        int speed,
+        int mazeType
     ) {
         this.game = game;
         this.x = x;
@@ -37,11 +41,17 @@ public class Pacman {
         this.width = width;
         this.height = height;
         this.speed = speed;
+        this.mazeType = mazeType;
         this.direction = Game.DIRECTION_RIGHT;
         this.nextDirection = Game.DIRECTION_RIGHT;
         this.currentFrame = 1;
         this.frameCount = 7;
         this.map = game.map;
+
+         // Adjust speed based on maze type
+         if (mazeType == 2) {
+            this.speed = (int)(speed * 1.2); // Slightly faster in maze 2 to give better chance against corner ghosts
+        }
 
         pacmanFrames = loadFrames("./resource/pacman/animations.gif", frameCount, width, height);
 

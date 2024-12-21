@@ -29,6 +29,10 @@ public class Ghost {
     private Game game;
     private Pacman pacman;
 
+    private int mazeType; // Add this field
+    private static final int DEFAULT_RANGE = 6;
+    private static final int CORNER_RANGE = 8; // Larger range for corner ghosts
+
     public Ghost(
         Game game,
         Pacman pacman,
@@ -38,7 +42,8 @@ public class Ghost {
         int width,
         int height,
         double speed,
-        int range
+        int range,
+        int mazeType
     ) {
         this.image = image;
         this.x = x;
@@ -46,7 +51,8 @@ public class Ghost {
         this.width = width;
         this.height = height;
         this.speed = speed;
-        this.range = range;
+        this.mazeType = mazeType;
+        this.range = (mazeType == 2) ? CORNER_RANGE : DEFAULT_RANGE;
 
         this.direction = Game.DIRECTION_RIGHT;
         this.game = game;
@@ -60,26 +66,26 @@ public class Ghost {
         return Math.sqrt(xDistance * xDistance + yDistance * yDistance) <= range;
     }
 
-    private void moveProcess() {
-        if (isInRange()) {
-            target = pacman;
-            changeDirectionIfPossible();
-        } else {
-            randomDirectionTimer += 1 / game.fps;
-            if (randomDirectionTimer >= directionChangeInterval) {
-                randomDirectionTimer = 0;
-                direction = 1 + random.nextInt(4);
-            }
-        }
+    // private void moveProcess() {
+    //     if (isInRange()) {
+    //         target = pacman;
+    //         changeDirectionIfPossible();
+    //     } else {
+    //         randomDirectionTimer += 1 / game.fps;
+    //         if (randomDirectionTimer >= directionChangeInterval) {
+    //             randomDirectionTimer = 0;
+    //             direction = 1 + random.nextInt(4);
+    //         }
+    //     }
 
-        moveForwards();
-        if (checkCollisions(map)) {
-            moveBackwards();
-            if (!isInRange()) {
-                direction = 1 + random.nextInt(4);
-            }
-        }
-    }
+    //     moveForwards();
+    //     if (checkCollisions(map)) {
+    //         moveBackwards();
+    //         if (!isInRange()) {
+    //             direction = 1 + random.nextInt(4);
+    //         }
+    //     }
+    // }
 
     private void moveForwards() {
         switch (direction) {
@@ -174,26 +180,26 @@ public class Ghost {
         }
     }
 
-    private int calculateNewDirection(int[][] map, int destX, int destY) {
-        if (
-            this.image == game.blinky
-        ) {
-            return calculateUCS(map, destX, destY);
-        } else if (
-            this.image == game.pinky
-        ) {
-            return calculateDFS(map, destX, destY);
-        } else if (
-            this.image == game.inky
-        ) {
-            return calculateAStar(map, destX, destY);
-        } else if (
-            this.image == game.clyde
-        ) {
-            return calculateBDFS(map, destX, destY);
-        }
-        return Game.DIRECTION_DOWN;
-    }
+//     private int calculateNewDirection(int[][] map, int destX, int destY) {
+//         if (
+//             this.image == game.blinky
+//         ) {
+//             return calculateUCS(map, destX, destY);
+//         } else if (
+//             this.image == game.pinky
+//         ) {
+//             return calculateDFS(map, destX, destY);
+//         } else if (
+//             this.image == game.inky
+//         ) {
+//             return calculateAStar(map, destX, destY);
+//         } else if (
+//             this.image == game.clyde
+//         ) {
+//             return calculateBDFS(map, destX, destY);
+//         }
+//         return Game.DIRECTION_DOWN;
+//     }
 
     // For Blinky - Uniform Cost Search
     private int calculateUCS(int[][] map, int destX, int destY) {
@@ -430,4 +436,134 @@ public class Ghost {
             ghost.moveProcess();
         }
     }
+private void moveProcess() {
+    if (mazeType == 2) {
+        cornerGhostBehavior();
+    } else {
+        classicGhostBehavior();
+    }
+}
+
+private void cornerGhostBehavior() {
+    if (isInRange()) {
+        // Aggressive chase when Pacman is in range
+        target = pacman;
+        changeDirectionIfPossible();
+    } else {
+        // Return to corner position when Pacman is out of range
+        Point cornerPosition = getCornerPosition();
+        if (getMapX() == cornerPosition.x / game.oneBlockSize && 
+            getMapY() == cornerPosition.y / game.oneBlockSize) {
+            // Stay in position and rotate randomly
+            randomDirectionTimer += 1.0 / game.fps;
+            if (randomDirectionTimer >= directionChangeInterval) {
+                randomDirectionTimer = 0;
+                direction = 1 + random.nextInt(4);
+            }
+        } else {
+            // Move back to corner
+            target = cornerPosition;
+            changeDirectionIfPossible();
+        }
+    }
+
+    moveForwards();
+    if (checkCollisions(map)) {
+        moveBackwards();
+        direction = 1 + random.nextInt(4);
+    }
+}
+
+private void classicGhostBehavior() {
+    // Original behavior for maze 1
+    if (isInRange()) {
+        target = pacman;
+        changeDirectionIfPossible();
+    } else {
+        randomDirectionTimer += 1 / game.fps;
+        if (randomDirectionTimer >= directionChangeInterval) {
+            randomDirectionTimer = 0;
+            direction = 1 + random.nextInt(4);
+        }
+    }
+
+    moveForwards();
+    if (checkCollisions(map)) {
+        moveBackwards();
+        if (!isInRange()) {
+            direction = 1 + random.nextInt(4);
+        }
+    }
+}
+
+private Point getCornerPosition() {
+    if (this.image == game.blinky) {  // Red ghost - top left
+        return new Point(game.oneBlockSize, game.oneBlockSize);
+    } else if (this.image == game.pinky) {  // Pink ghost - top right
+        return new Point((map[0].length - 2) * game.oneBlockSize, game.oneBlockSize);
+    } else if (this.image == game.inky) {  // Cyan ghost - bottom left
+        return new Point(game.oneBlockSize, (map.length - 2) * game.oneBlockSize);
+    } else {  // Orange ghost - bottom right
+        return new Point((map[0].length - 2) * game.oneBlockSize, (map.length - 2) * game.oneBlockSize);
+    }
+}
+
+// Modify calculateNewDirection for corner ghost behavior
+private int calculateNewDirection(int[][] map, int destX, int destY) {
+    if (mazeType == 2) {
+        // More aggressive pathfinding for corner ghosts
+        if (this.image == game.blinky) {
+            // Blinky uses A* for most direct pursuit
+            return calculateAStar(map, destX, destY);
+        } else if (this.image == game.pinky) {
+            // Pinky tries to cut off Pacman
+            int predictedX = destX + (destX - getMapX());
+            int predictedY = destY + (destY - getMapY());
+            return calculateUCS(map, predictedX, predictedY);
+        } else if (this.image == game.inky) {
+            // Inky uses ambush tactics
+            return calculateAmbushDirection(map, destX, destY);
+        } else {
+            // Clyde alternates between chase and scatter
+            return calculateScatterChase(map, destX, destY);
+        }
+    } else {
+        // Original behavior for maze 1
+        if (this.image == game.blinky) {
+            return calculateUCS(map, destX, destY);
+        } else if (this.image == game.pinky) {
+            return calculateDFS(map, destX, destY);
+        } else if (this.image == game.inky) {
+            return calculateAStar(map, destX, destY);
+        } else if (this.image == game.clyde) {
+            return calculateBDFS(map, destX, destY);
+        }
+    }
+    return Game.DIRECTION_DOWN;
+}
+
+// New pathfinding methods for corner ghosts
+private int calculateAmbushDirection(int[][] map, int destX, int destY) {
+    // Try to predict where Pacman is heading and intercept
+    int pacmanDirX = destX - pacman.getMapX();
+    int pacmanDirY = destY - pacman.getMapY();
+    int ambushX = destX + (pacmanDirX * 2);
+    int ambushY = destY + (pacmanDirY * 2);
+    
+    // Keep coordinates within map bounds
+    ambushX = Math.min(Math.max(1, ambushX), map[0].length - 2);
+    ambushY = Math.min(Math.max(1, ambushY), map.length - 2);
+    
+    return calculateAStar(map, ambushX, ambushY);
+}
+
+private int calculateScatterChase(int[][] map, int destX, int destY) {
+    // Alternate between chasing Pacman and returning to corner
+    if (System.currentTimeMillis() / 1000 % 10 < 5) { // Switch every 5 seconds
+        return calculateAStar(map, destX, destY); // Chase
+    } else {
+        Point corner = getCornerPosition();
+        return calculateUCS(map, corner.x / game.oneBlockSize, corner.y / game.oneBlockSize); // Scatter
+    }
+}
 }
