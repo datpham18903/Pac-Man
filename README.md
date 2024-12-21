@@ -38,9 +38,105 @@
 
 
 <!-- INSTALLATION -->
-## Installation 
-*Prerequisites*: Make sure that the following dependencies are installed on your machine:
--  ???
+Based on the information provided and standard practices for Java-based game installations, here's an updated installation guide for your Pac-Man Java game:
+
+## Installation Guide for Pac-Man Java Game
+
+### Prerequisites
+
+Ensure your system has the following installed:
+
+- **Java Development Kit (JDK) 21**: [Download from Oracle](https://www.oracle.com/java/technologies/javase/jdk21-archive-downloads.html).
+
+- **JavaFX**: [Download from Gluon](https://gluonhq.com/products/javafx/).
+
+- **Git**: [Download from Git SCM](https://git-scm.com/downloads).
+
+### Installation Steps
+
+1. **Clone the Repository**:
+
+   ```bash
+   git clone https://github.com/datpham18903/Pac-Man.git
+   ```
+
+2. **Navigate to the Project Directory**:
+
+   ```bash
+   cd Pac-Man
+   ```
+
+3. **Set Up JavaFX**:
+
+   - **Download JavaFX SDK**:
+
+     - Visit the [Gluon website](https://gluonhq.com/products/javafx/).
+
+     - Download the JavaFX SDK suitable for your operating system.
+
+   - **Configure JavaFX in Your IDE**:
+
+     - **For IntelliJ IDEA**:
+
+       - Open **File > Project Structure > Libraries**.
+
+       - Click **+** and add the path to the JavaFX SDK's `lib` directory.
+
+     - **For Eclipse**:
+
+       - Right-click on the project and select **Properties**.
+
+       - Navigate to **Java Build Path > Libraries**.
+
+       - Click **Add External JARs** and select all JAR files in the JavaFX SDK's `lib` directory.
+
+4. **Build and Run the Project**:
+
+   - **Using IntelliJ IDEA**:
+
+     - Open the project.
+
+     - Ensure JDK 21 is set as the project SDK.
+
+     - Configure run configurations to include JavaFX libraries:
+
+       - Go to **Run > Edit Configurations**.
+
+       - In **VM options**, add:
+
+         ```bash
+         --module-path /path/to/javafx-sdk/lib --add-modules javafx.controls,javafx.fxml
+         ```
+
+     - Click **Run** to start the game.
+
+   - **Using Command Line**:
+
+     - Compile the project:
+
+       ```bash
+       javac --module-path /path/to/javafx-sdk/lib --add-modules javafx.controls,javafx.fxml -d bin src/*.java
+       ```
+
+     - Run the project:
+
+       ```bash
+       java --module-path /path/to/javafx-sdk/lib --add-modules javafx.controls,javafx.fxml -cp bin Main
+       ```
+
+### Troubleshooting
+
+- **JavaFX Runtime Components Missing**: Ensure JavaFX is correctly configured in your IDE or command line setup.
+
+- **Unsupported Java Version**: Verify that JDK 21 is installed and set as the project SDK.
+
+- **Compilation Errors**: Check for missing dependencies or incorrect file paths.
+
+For further assistance, refer to the [official JavaFX documentation](https://openjfx.io/) or consult community forums.
+
+*Note: Replace `/path/to/javafx-sdk/lib` with the actual path to your JavaFX SDK's `lib` directory.*
+
+Enjoy your Pac-Man gaming experience! 
 
 
 <!-- MOTIVATION -->
@@ -58,7 +154,10 @@ We are working with this game as our project lab of Algorithms & Data Structures
 
 <!-- TOOL USED -->
 # Tool Used 
-- ???
+- Java 21 
+- Javafx
+- Paint
+- Java 2D
 
 
 <!-- FEATURES -->
