@@ -263,12 +263,20 @@ public class Game extends JPanel implements KeyListener {
 
     private void drawIntro(Graphics2D g2d) {
         g2d.setColor(Color.yellow);
-        g2d.setFont(new Font("Emulogic", Font.PLAIN, 10));
-        g2d.drawString(
-            "Ready!", 
-            (oneBlockSize * map[0].length) / 2 - 30, 
-            (oneBlockSize * map.length) / 2 + 45
-        );
+        g2d.setFont(new Font("Emulogic", Font.PLAIN, 20));
+        String text = "Ready! Press Space or Enter to Start";
+
+        // Calculate text dimensions
+        FontMetrics metrics = g2d.getFontMetrics(g2d.getFont());
+        int textWidth = metrics.stringWidth(text);
+        int textHeight = metrics.getHeight();
+
+        // Calculate position to center the text
+        int centerX = (oneBlockSize * map[0].length) / 2 - textWidth / 2;
+        int centerY = (oneBlockSize * map.length) / 2 + textHeight / 4;
+
+        // Draw the string
+        g2d.drawString(text, centerX, centerY);
     }
 
     private void drawGhost(Graphics2D g2d) {
