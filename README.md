@@ -38,7 +38,7 @@
 
 
 <!-- INSTALLATION -->
-## Installation Guide for Pac-Man Java Game
+## Installation
 
 ### Prerequisites
 
