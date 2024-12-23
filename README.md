@@ -61,7 +61,7 @@
      ```
 
 3. **Compile the Java Source Files**:
-   - Compile the Java source files located in the [src](http://_vscodecontentref_/0) directory:
+   - Compile the Java source files located in the [src] directory:
      ```sh
      javac -d bin src/*.java
      ```
