@@ -53,11 +53,11 @@
 2. **Clone the Repository**:
    - Open a terminal and run the following command to clone the repository:
      ```sh
-     git clone <repository-url>
+     git clone https://github.com/datpham18903/Pac-Man.git 
      ```
    - Navigate to the project directory:
      ```sh
-     cd <repository-directory>
+     cd Pac-Man
      ```
 
 3. **Compile the Java Source Files**:
