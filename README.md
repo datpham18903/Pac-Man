@@ -33,106 +33,47 @@
 <!-- TEAM MEMBERS -->
 ## Team Members 
 
-| Order |         Name          |     ID      |                  Email                  |                       Github account                        |                              Facebook                              |
-| :---: | :-------------------: | :---------: |:---------------------------------------:| :---------------------------------------------------------: | :----------------------------------------------------------------: |
+| Order |         Name          |     ID      |                       Github account                        |
+| :---: | :-------------------: | :---------: | :---------------------------------------------------------: |
+|   1   | Pham Nguyen Tien Dat | ITDSIU21080 | [datpham18903](https://github.com/datpham18903) |
+|   2   | Nguyen Hai Quan | ITITWE21104  | [haiquan009203](https://github.com/haiquan0092003) | 
+|   3   | Duong Ngoc Phuong Anh | ITDSIU22135 |   [dngcphngnh04](https://github.com/dngcphngnh04) | 
+|   4   | Nguyen Hai Phu | ITDSIU22179| |
+|   5   | Nguyen Hoang Minh Khoi | ITCSIU22217 |  [Khoiiminh](https://github.com/Khoiiminh) | 
+
 
 
 <!-- INSTALLATION -->
 ## Installation
 
-### Prerequisites
+1. **Install Java Development Kit (JDK)**:
+   - Download and install the JDK from the [official Oracle website](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) or use a package manager like `brew` on macOS or `apt` on Ubuntu.
+   - Ensure that the `JAVA_HOME` environment variable is set correctly and that the `java` and `javac` commands are available in your terminal.
 
-Ensure your system has the following installed:
+2. **Clone the Repository**:
+   - Open a terminal and run the following command to clone the repository:
+     ```sh
+     git clone <repository-url>
+     ```
+   - Navigate to the project directory:
+     ```sh
+     cd <repository-directory>
+     ```
 
-- **Java Development Kit (JDK) 21**: [Download from Oracle](https://www.oracle.com/java/technologies/javase/jdk21-archive-downloads.html).
+3. **Compile the Java Source Files**:
+   - Compile the Java source files located in the [src](http://_vscodecontentref_/0) directory:
+     ```sh
+     javac -d bin src/*.java
+     ```
 
-- **JavaFX**: [Download from Gluon](https://gluonhq.com/products/javafx/).
+4. **Run the Application**:
+   - Run the compiled Java application:
+     ```sh
+     java -cp bin App
+     ```
 
-- **Git**: [Download from Git SCM](https://git-scm.com/downloads).
-
-### Installation Steps
-
-1. **Clone the Repository**:
-
-   ```bash
-   git clone https://github.com/datpham18903/Pac-Man.git
-   ```
-
-2. **Navigate to the Project Directory**:
-
-   ```bash
-   cd Pac-Man
-   ```
-
-3. **Set Up JavaFX**:
-
-   - **Download JavaFX SDK**:
-
-     - Visit the [Gluon website](https://gluonhq.com/products/javafx/).
-
-     - Download the JavaFX SDK suitable for your operating system.
-
-   - **Configure JavaFX in Your IDE**:
-
-     - **For IntelliJ IDEA**:
-
-       - Open **File > Project Structure > Libraries**.
-
-       - Click **+** and add the path to the JavaFX SDK's `lib` directory.
-
-     - **For Eclipse**:
-
-       - Right-click on the project and select **Properties**.
-
-       - Navigate to **Java Build Path > Libraries**.
-
-       - Click **Add External JARs** and select all JAR files in the JavaFX SDK's `lib` directory.
-
-4. **Build and Run the Project**:
-
-   - **Using IntelliJ IDEA**:
-
-     - Open the project.
-
-     - Ensure JDK 21 is set as the project SDK.
-
-     - Configure run configurations to include JavaFX libraries:
-
-       - Go to **Run > Edit Configurations**.
-
-       - In **VM options**, add:
-
-         ```bash
-         --module-path /path/to/javafx-sdk/lib --add-modules javafx.controls,javafx.fxml
-         ```
-
-     - Click **Run** to start the game.
-
-   - **Using Command Line**:
-
-     - Compile the project:
-
-       ```bash
-       javac --module-path /path/to/javafx-sdk/lib --add-modules javafx.controls,javafx.fxml -d bin src/*.java
-       ```
-
-     - Run the project:
-
-       ```bash
-       java --module-path /path/to/javafx-sdk/lib --add-modules javafx.controls,javafx.fxml -cp bin Main
-       ```
-
-### Troubleshooting
-
-- **JavaFX Runtime Components Missing**: Ensure JavaFX is correctly configured in your IDE or command line setup.
-
-- **Unsupported Java Version**: Verify that JDK 21 is installed and set as the project SDK.
-
-- **Compilation Errors**: Check for missing dependencies or incorrect file paths.
-
-For further assistance, refer to the [official JavaFX documentation](https://openjfx.io/) or consult community forums.
-
-*Note: Replace `/path/to/javafx-sdk/lib` with the actual path to your JavaFX SDK's `lib` directory.*
+5. **Ensure Resources are Available**:
+   - Make sure that the resource files (images and fonts) are correctly placed in the `resource` directory as specified in the code.
 
 Enjoy your Pac-Man gaming experience! 
 
@@ -151,11 +92,13 @@ We are working with this game as our project lab of Algorithms & Data Structures
 -đợi reporreport
 
 <!-- TOOL USED -->
-# Tool Used 
-- Java 21 
-- Javafx
-- Paint
-- Java 2D
+## Tools Used
+
+1. **Java Development Kit (JDK)**: The project is written in Java, so the JDK is required to compile and run the code.
+2. **Swing**: Java's built-in library for creating graphical user interfaces (GUIs).
+3. **AWT**: Java's Abstract Window Toolkit, used for creating graphical user interfaces and painting graphics.
+4. **ImageIO**: Part of Java's standard library for reading and writing images.
+5. **Timer**: Part of Java's `javax.swing` package, used for scheduling tasks.
 
 
 <!-- FEATURES -->
@@ -201,6 +144,10 @@ This project makes use of numerous open-source tools, OpenAI, and libraries. We 
 
 <!-- REFERENCES -->
 # References
+- Kenny Yip Coding. (2024, October 21). Code Pacman in Java [Video]. YouTube. https://www.youtube.com/watch?v=lB_J-VNMVpE.
+- Servet Gulnaroglu. (2022, November 17). ASMR Programming - Coding Pacman - No Talking [Video]. YouTube. https://www.youtube.com/watch?v=GXlckaGr0Eo. 
+- Coder Ph. (2020, November 9). HOW TO MAKE a PACMAN GAME IN JAVA LANGUAGE - PROGRAMMING TUTORIAL FOR BEGINNERS | CS Programmer [Video]. YouTube. https://www.youtube.com/watch?v=pw-1z5SmXQk. 
+- Tovmasyan, T. (2021, December 16). AI and PacMan (A story of ghosts’ intelligence) - Tatevik Tovmasyan - Medium. Medium. https://tateviktome-tovmasyan.medium.com/ai-and-pacman-a-story-of-ghosts-intelligence-d2f296c31675. 
 
 
 
