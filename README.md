@@ -38,7 +38,7 @@
 |   1   | Pham Nguyen Tien Dat | ITDSIU21080 | [datpham18903](https://github.com/datpham18903) |
 |   2   | Nguyen Hai Quan | ITITWE21104  | [haiquan009203](https://github.com/haiquan0092003) | 
 |   3   | Duong Ngoc Phuong Anh | ITDSIU22135 |   [dngcphngnh04](https://github.com/dngcphngnh04) | 
-|   4   | Nguyen Hai Phu | ITDSIU22179| |
+|   4   | Nguyen Hai Phu | ITDSIU22179| [ haiphu241 ](https://github.com/haiphu241)|
 |   5   | Nguyen Hoang Minh Khoi | ITCSIU22217 |  [Khoiiminh](https://github.com/Khoiiminh) | 
 
 
@@ -116,7 +116,7 @@ We are working with this game as our project lab of Algorithms & Data Structures
     + The Blinky<img src="./src/resource/ghosts/blinky.png" alt="Blinky" width="25" height="25"> - Uniform Cost Search ( UCS ).
     + The Pinky<img src="./src/resource/ghosts/pinky.png" alt="Pinky" width="25" height="25"> - Depth First Search ( DFS ).
     + Inky<img src="./src/resource/ghosts/inky.png" alt="Inky" width="25" height="25"> - A* Search.
-    + Clyde<img src="./src/resource/ghosts/clyde.png" alt="Clyde" width="25" height="25"> - Breadth First Search (BFS).
+    + Clyde<img src="./src/resource/ghosts/clyde.png" alt="Clyde" width="25" height="25"> - Bidirectional Depth First Search (BDFS).
 
 - Design
   
