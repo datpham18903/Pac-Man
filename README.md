@@ -14,7 +14,7 @@
         <li><a href="#Team-members">Team Members</a></li>
 	<li><a href="#installation">Installation</a></li>
 	<li><a href="#motivation">Motivation</a></li>
-	<li><a href="#task-allocation">Task Allocation</a></li>      
+	<li><a href="#contribution-table">Contribution Table</a></li>      
       </ul>
     </li>
     <li><a href="#Tool-Used">Tool Used</a></li>
@@ -85,11 +85,16 @@ We are working with this game as our project lab of Algorithms & Data Structures
 
 </p>
 
-<!-- TASK ALLOCATION -->
-## Task Allocation 
-| Order | Task                                  |  Person   | Contribution (%) |
+<!-- CONTRIBUTION TABLE -->
+## Contribution Table 
+| Order | Full Name                                  |  ID   | Contribution (%) |
 | :---- |:--------------------------------------| :-------: | :----------: |
--đợi reporreport
+| 1     |  Pham Nguyen Tien Dat |  ITDSIU21080  |      20      |
+| 2     | Nguyen Hai Quan  | ITITWE21104 |      20      |
+| 3     | Duong Ngoc Phuong Anh | ITDSIU22135 |      20      |
+| 4     |  Nguyen Hai Phu| ITDSIU22179 |      20      |
+| 5     | Nguyen Hoang Minh Khoi | ITCSIU22217 |      20      |
+
 
 <!-- TOOL USED -->
 ## Tools Used
@@ -111,7 +116,7 @@ We are working with this game as our project lab of Algorithms & Data Structures
     + The Blinky<img src="./src/resource/ghosts/blinky.png" alt="Blinky" width="25" height="25"> - Uniform Cost Search ( UCS ).
     + The Pinky<img src="./src/resource/ghosts/pinky.png" alt="Pinky" width="25" height="25"> - Depth First Search ( DFS ).
     + Inky<img src="./src/resource/ghosts/inky.png" alt="Inky" width="25" height="25"> - A* Search.
-    + Clyde<img src="./src/resource/ghosts/clyde.png" alt="Clyde" width="25" height="25"> - Breadth First Search (BDFS).
+    + Clyde<img src="./src/resource/ghosts/clyde.png" alt="Clyde" width="25" height="25"> - Breadth First Search (BFS).
 
 - Design
   
@@ -120,7 +125,7 @@ We are working with this game as our project lab of Algorithms & Data Structures
 ![My Image](Design2.png)
 
 - UML
-???
+![My Image](UML.png)
 
 
 <!-- CHALLENGES -->
@@ -131,10 +136,10 @@ We are working with this game as our project lab of Algorithms & Data Structures
 
 <!-- ACKNOWLEDGMENTS -->
 # Acknowledgments
+- The team would like to extend heartfelt gratitude to our lecturers, Dr. Tran Thanh Tung and MSc. Thai Trung Tin, for their invaluable guidance and support throughout this project. 
 - We wish to express our profound appreciation to everyone who played a part in the successful completion of our DSA game project. This adventure has been immensely fulfilling, and the contributions of each team member have been indispensable.
-- Our friends’ feedback and suggestions have been invaluable. Their perspectives have greatly enhanced the gaming experience. We extend our thanks to our beta testers who generously offered their time to aid us in perfecting our game. 
-- [!IMPORTANT]
-This project makes use of numerous open-source tools, OpenAI, and libraries. We express our deep gratitude to the developers and maintainers of these resources. Their contributions have been crucial in making our game a reality.
+- Our friends’ feedback and suggestions have been invaluable. Their perspectives have greatly enhanced the gaming experience. 
+- This project makes use of numerous open-source tools, OpenAI, and libraries. We express our deep gratitude to the developers and maintainers of these resources. Their contributions have been crucial in making our game a reality.
 
 
 
